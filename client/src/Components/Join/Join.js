@@ -8,6 +8,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
+// css file import 
+import './Join.css';
+
 // function based component
 const Join = () => {
   // delcaring hooks
