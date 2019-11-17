@@ -21,9 +21,16 @@ const Chat = ({ location }) => {
     setRoom(room);
 
     // passing a data to server or backend 
+    // we are calling join event which is specified on server io connection
     socket.emit('join', {name, room}, () => {
-      
+
     });
+
+    return () => {
+      socket.emit('disconnect'); // calling the event which was specified on server side
+
+      socket.off();
+    }
     
   }, [ENDPOINT, location.search]);
   return (

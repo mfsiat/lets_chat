@@ -48,3 +48,7 @@ io.on('connection', (socket) => {
   })
 });
 ```
+
+- **socket.emit('join')** this means we are calling the join event that was specified on the server side and after that we should specify what we should do. 
+
+- **socket.emit('disconnect')** this means we are calling the disconnect event that was specified on the server side and after that we should specify what we should do. 
