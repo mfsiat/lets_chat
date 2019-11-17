@@ -23,10 +23,15 @@
 - in our chat first thing will happen 
   - 1. retrive data while joining 
   - 2. we define the endpoints on socket
-  - 3. we specify socket connection 
+  - 3. we specify socket connection
+  - 4. pass data from front end to back end or server by emiting data 
 
 
 ## Server Side
+
+- specify **express** configuration
+
+- 
 
 - a basic instace for server side socket connection 
 ```js 

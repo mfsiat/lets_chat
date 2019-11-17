@@ -21,7 +21,9 @@ const Chat = ({ location }) => {
     setRoom(room);
 
     // passing a data to server or backend 
-    socket.emit('join', {name, room});
+    socket.emit('join', {name, room}, () => {
+      
+    });
     
   }, [ENDPOINT, location.search]);
   return (
