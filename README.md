@@ -6,7 +6,7 @@
 
 - 
 
-## Join instance
+## Join instance (Client Side)
 
 - when user join a connection event will fire up
 - when user join a disconnection event will fire up
@@ -14,7 +14,7 @@
 - we can use state and lifeCycle method inside hook at the same timeon Link we are not transferring data with props or using redux we are going to pass data through url or as string
 
 
-## Chat instance
+## Chat instance (Client Side)
 
 - we are using hooks, socket and useEffect(life cycle method)
 
@@ -31,7 +31,7 @@
 
 - specify **express** configuration
 
-- 
+- connect them with the client side 
 
 - a basic instace for server side socket connection 
 ```js 
@@ -52,3 +52,5 @@ io.on('connection', (socket) => {
 - **socket.emit('join')** this means we are calling the join event that was specified on the server side and after that we should specify what we should do. 
 
 - **socket.emit('disconnect')** this means we are calling the disconnect event that was specified on the server side and after that we should specify what we should do. 
+
+- **users.js** contains the helper functions of adding, deleting , singin and sing out previlidges. 
