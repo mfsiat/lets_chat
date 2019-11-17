@@ -20,7 +20,8 @@ const Chat = ({ location }) => {
     setName(name);
     setRoom(room);
 
-    console.log(socket);
+    // passing a data to server or backend 
+    socket.emit('join', {name, room});
     
   }, [ENDPOINT, location.search]);
   return (

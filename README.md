@@ -21,4 +21,25 @@
 - **useEffect** is a hook it is similar to **componentDidMount** and also **componentDidUpdate**. So using just only useEffect is enough to declare two methods. 
 
 - in our chat first thing will happen 
-  - 1 retrive data while joining 
+  - 1. retrive data while joining 
+  - 2. we define the endpoints on socket
+  - 3. we specify socket connection 
+
+
+## Server Side
+
+- a basic instace for server side socket connection 
+```js 
+// creating jus a simple connection
+io.on('connection', (socket) => {
+  console.log('We have a new connection!!');
+
+  socket.on('join', ({name, room}) => {
+    console.log(name, room);
+  })
+
+  socket.on('disconnect', () => {
+    console.log('User had left!!!');
+  })
+});
+```
