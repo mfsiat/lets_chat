@@ -19,21 +19,25 @@ const addUser = ({ id, name, room }) => {
   }
 
   const user = { id, name, room };
-
+  // push the user on the array
   users.push(user);
 
   return { user };
 }
+// only one parameter
+const removeUser = (id) => {
+  // try to find user id 
+  const index = users.findIndex((user) => user.id === id);
 
-const removeUser = () => {
-
+  if(index !== -1) {
+    return users.splice(index, 1)[0];
+  }
 }
 
-const getUser = () => {
+const getUser = (id) => users.find((user) => user.id === id);
 
-}
+const getUsersInRoom = (room) => users.filter((user) => user.room === room);
 
-const getUsersInRoom = () => {
 
-}
+module.exports = { addUser, removeUser, getUser, getUsersInRoom };
 
