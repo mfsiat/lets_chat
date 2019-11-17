@@ -47,6 +47,13 @@ const Chat = ({ location }) => {
   }, [messages]);
 
   // function for sending messages 
+  // firing up this function calls for the emit listener 'sendMessage' 
+  const sendMessage = (event) => {
+    if(message) {
+      socket.emit('sendMessage')
+    }
+  }
+
 
   return (
     <div className="outerContainer">

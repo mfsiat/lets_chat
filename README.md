@@ -54,3 +54,31 @@ io.on('connection', (socket) => {
 - **socket.emit('disconnect')** this means we are calling the disconnect event that was specified on the server side and after that we should specify what we should do. 
 
 - **users.js** contains the helper functions of adding, deleting , singin and sing out previlidges. 
+
+- **sendMessage** is an event for user to send message 
+```js 
+// on chat.js this function fires up 
+const sendMessage = (event) => {
+  if(message) {
+    socket.emit('sendMessage')
+  }
+}
+
+// on server side index.js
+// socket emitter listens for sendMessage 
+// whenever client side emit event of 'sendMessage' fires up 
+// server side responds 
+// code goes here
+  // user generated message
+  // emit happens on front end and after this sendMessage we are 
+  // emitting those front end events
+  socket.on('sendMessage', (message, callback) => {
+    const user = getUser(socket.id);
+
+    // we are emitting message and our payload is the message and username
+    io.to(user.room).emit('message', {user: user.name, text: message});
+
+    // for after the message send 
+    callback();
+  });
+```
