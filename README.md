@@ -82,3 +82,29 @@ const sendMessage = (event) => {
     callback();
   });
 ```
+
+### Logic For Message Component 
+
+- we are using this component from Messages component 
+- we will loop through the messages and with key i we will display the message 
+- logic in message 
+```js 
+const Message = ({ message, name }) => {
+  let isSentByCurrentUser = false; // primary it is false 
+
+  const trimmedName = name.trim().toLowerCase();
+  if(user === trimmedName) { // checks the user name 
+    isSentByCurrentUser = true; // makes it true 
+  }
+// we are using a turneri operator 
+  return (
+    isSentByCurrentUser 
+      ? (
+        // something happens here 
+      ) 
+      : (
+        // something happens here         
+      )
+  )
+}
+```
