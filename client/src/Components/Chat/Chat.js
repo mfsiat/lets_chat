@@ -8,6 +8,9 @@ let socket;
 const Chat = ({ location }) => {
   const [name, setName] = useState('');
   const [room, setRoom] = useState('');
+  const [message, setMessage] = useState(''); // for every single message
+  const [messages, setMessages] = useState([]); // for all messages 
+
   const ENDPOINT = 'localhost:5000';
   // it will run when the component renders
   // first retrive the data while joining
@@ -33,6 +36,18 @@ const Chat = ({ location }) => {
     }
     
   }, [ENDPOINT, location.search]);
+
+  // creating another useEffect for handling messages 
+  // whenever an emit event message triggers then for every message send by the admin 
+  // every single message will be pushed inside the setMessages
+  useEffect(() => {
+    socket.on('message', (message) => {
+      setMessages([...messages, message]); 
+    })
+  }, [messages]);
+
+  // function for sending messages 
+
   return (
     <h1>Chat</h1>
   );
