@@ -38,6 +38,8 @@ io.on("connection", socket => {
 
     socket.join(user.room);
 
+    io.to(user.room).emit('roomData', { room: user.room, users: getUsersInRoom(user.room) } )
+
     callback();
   });
   // user generated message
@@ -48,13 +50,18 @@ io.on("connection", socket => {
 
     // we are emitting message and our payload is the message and username
     io.to(user.room).emit('message', {user: user.name, text: message});
+    io.to(user.room).emit('roomData', {room: user.room, users: getUsersInRoom(user.room)});
 
     // for after the message send 
     callback();
   });
 
   socket.on("disconnect", () => {
-    console.log("User had left!!!");
+    const user = removeUser(socket.id);
+
+    if(user){
+      io.to(user.room).emit('message', { user: 'admin', text: `${user.name} has left.` })
+    }
   });
 });
 
