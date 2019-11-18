@@ -22,7 +22,7 @@ const Chat = ({ location }) => {
   const [message, setMessage] = useState(''); // for every single message
   const [messages, setMessages] = useState([]); // for all messages 
 
-  const ENDPOINT = 'localhost:5000';
+  const ENDPOINT = 'https://mfsiat-rchat.herokuapp.com/';
   // it will run when the component renders
   // first retrive the data while joining
   // we are passing in our location search data
