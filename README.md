@@ -7,3 +7,10 @@
 - Front end deployed on **Netlify** and back end deployed on **Heroku** 
 - At a time the app is linking itself with two servers to run the full app. 
 - Live link [Click Here](https://mfsiat-rchat.netlify.com/)
+- As it is using states or the users getting messages by changing states sometimes it becomes slow. 
+
+### ScreenShot
+
+![](https://github.com/mfsiat/lets_chat/blob/master/twouser.gif)
+
+
