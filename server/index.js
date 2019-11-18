@@ -3,6 +3,7 @@
 const express = require("express");
 const socketio = require("socket.io");
 const http = require("http");
+const cors = require('cors');
 
 const { addUser, removeUser, getUser, getUsersInRoom } = require("./users.js");
 
@@ -17,6 +18,9 @@ const app = express();
 // init server
 const server = http.createServer(app);
 const io = socketio(server);
+
+app.use(router);
+app.use(cors());
 
 // creating jus a simple connection
 // socket.id will gen auto id and rest will be given by user to addUser()
